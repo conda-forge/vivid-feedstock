@@ -1,5 +1,5 @@
 {% set name = "vivid" %}
-{% set version = "0.10.1" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/sharkdp/vivid/archive/v{{ version }}.tar.gz
-  sha256: 88db6158dad60aba66ae16f2cd1b09f515625940a33bada65da5562a03538e49
+  sha256: 2d31f72ac9df81ddc8b5ecb9e5e539c754c22863ada3e76e4c1a88ee53c99a21
 
 build:
   number: 0
