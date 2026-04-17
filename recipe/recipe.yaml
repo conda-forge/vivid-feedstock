@@ -1,0 +1,44 @@
+schema_version: 1
+
+context:
+  name: vivid
+  version: "0.11.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/sharkdp/vivid/archive/v${{ version }}.tar.gz
+  sha256: a43ccfbc6554055181a08f2740664f9280fa2d0e57c4641850c60dd0e5323720
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - if: linux
+      then: ${{ compiler('cxx') }}
+    - if: linux
+      then: ${{ stdlib("c") }}
+    - ${{ compiler('rust') }}
+    - cargo-bundle-licenses
+  run:
+
+tests:
+  - script:
+      - vivid --help
+
+about:
+  license: Apache-2.0
+  license_file:
+    - LICENSE-APACHE
+    - LICENSE-MIT
+    - THIRDPARTY.yml
+  summary: A themeable LS_COLORS generator with a rich filetype datebase
+  homepage: https://github.com/sharkdp/vivid
+  repository: https://github.com/sharkdp/vivid
+
+extra:
+  recipe-maintainers:
+    - anjos
